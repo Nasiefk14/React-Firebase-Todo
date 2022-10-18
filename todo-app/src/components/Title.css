@@ -1,0 +1,8 @@
+@import url('https://fonts.googleapis.com/css2?family=Fascinate&display=swap');
+.title h1{
+    color: white;
+    font-family: 'Fascinate', cursive;
+    font-size: 36px;
+    font-weight: 300;
+    margin-top: 35px;
+}

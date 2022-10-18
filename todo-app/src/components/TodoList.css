@@ -1,0 +1,41 @@
+.todos{
+    margin-top: 20px;
+    background: #FFF;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-shadow: 1px 2px 20px #f0245e;
+}
+
+.todos input{
+    cursor: pointer;
+    width: 60%;
+    border: none;
+    outline: none;
+    cursor: pointer;
+    background-color: transparent;
+    font-size: 24px;
+    font-family: "Poppins", sans-serif;
+    font-weight: 400;
+  }
+
+#i{
+    font-size: 35px;
+}
+
+.buttonDelete,
+.buttonComplete,
+.buttonEdit{
+    border: none;
+    outline: none;
+    cursor: pointer;
+    background-color: transparent;
+    border-radius: 50%;
+}
+
+.buttonComplete,.buttonEdit{
+    margin-right: 5px;
+}

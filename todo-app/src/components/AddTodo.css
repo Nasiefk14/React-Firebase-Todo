@@ -1,0 +1,47 @@
+@import url('https://fonts.googleapis.com/css2?family=Fascinate&display=swap');
+
+form {
+  max-width: 500px;
+  margin: 0 auto;
+  padding: 10px 20px;
+  margin-top: 50px;
+  border-radius: 5px;
+  color: black;
+
+}
+
+form input {
+  width: 100%;
+  border-radius: 5px;
+  padding: 10px 5px;
+  outline: none;
+  font-size: 16px;
+  font-family: "Poppins", sans-serif;
+  font-weight: 600;
+  box-shadow: 1px 2px 20px #f0245e;
+  border: none;
+  height: 25px;
+}
+
+.inputContainer {
+  margin-bottom: 20px;
+}
+
+.buttonContainer{
+    text-align: center;
+    margin-bottom: 10px;
+}
+
+.buttonContainer button {
+    background: #2497f0;
+    color: white;
+    padding: 10px 20px;
+    outline: none;
+    border-color: #4b9ad6;
+    border-radius: 5px;
+    font-size: 16px;
+    cursor: pointer;
+    font-family: 'Fascinate', cursive;
+    width: 20%;
+    font-size: 24px;
+  }
