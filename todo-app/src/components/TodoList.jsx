@@ -24,9 +24,8 @@ const TodoList = ({ todo, toggleComplete, handleDelete, handleEdit }) => {
         value={todo.title === "" ? newTitle : todo.title}
         style={{ textDecoration: todo.completed && "line-through" }}
         onChange={onChangeHandler}
-        onClick={() => toggleComplete(todo)} 
       />
-      <div>
+      <div className="actionsContainer">
         <button onClick={() => handleEdit(todo, newTitle)} className='buttonEdit'>
             <EditIcon id='i'/>
         </button>
