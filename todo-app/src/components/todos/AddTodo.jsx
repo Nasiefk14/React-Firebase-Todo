@@ -1,6 +1,6 @@
 import React from 'react';
-import { database } from '../firebase';
-import { collection, addDoc } from 'firebase/firestore';
+import { database } from '../../firebase';
+import { collection, addDoc, serverTimestamp} from 'firebase/firestore';
 import { useState } from 'react';
 import './AddTodo.css'
 
@@ -11,7 +11,8 @@ const AddTodo = () => {
         if (title !== '') {
             await addDoc(collection(database, 'todos'), {
                 title,
-                completed: false
+                completed: false,
+                createdAt: serverTimestamp(),
             });
             setTitle('')
         }
