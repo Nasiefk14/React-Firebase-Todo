@@ -1,6 +1,6 @@
-import AddTodo from "../todos/AddTodo";
-import Title from "../todos/Title";
-import { db } from "../../firebase";
+import AddTodo from "./todos/AddTodo";
+import Title from "./todos/Title";
+import { db } from "../firebase";
 import {
   collection,
   query,
@@ -11,7 +11,7 @@ import {
   orderBy,
 } from "firebase/firestore";
 import { useEffect, useState } from "react";
-import TodoList from "../todos/TodoList";
+import TodoList from "./todos/TodoList";
 import "./Todos.css";
 
 function Todos() {

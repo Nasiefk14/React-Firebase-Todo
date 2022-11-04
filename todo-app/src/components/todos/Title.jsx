@@ -1,10 +1,14 @@
 import React from 'react';
 import './Title.css'
 
+import { useSelector } from 'react-redux'
+import { selectUserName } from '../../features/user/userSlice';
+
 const Title = () => {
+    const username = useSelector(selectUserName)
     return (
         <div className='title'>
-            <h1>My Todo App</h1>
+            <h1>{username}'s Todos</h1>
         </div>
     );
 }
