@@ -27,6 +27,7 @@ const Welcome = () => {
     signInWithEmailAndPassword(auth, loginEmail, loginPassword)
       .then((cred) => {
         console.log("User Logged In: ", cred.user);
+        
       })
       .catch((err) => {
         console.log(err.message);

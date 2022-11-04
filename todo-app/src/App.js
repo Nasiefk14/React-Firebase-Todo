@@ -1,4 +1,5 @@
-import Welcome from "./components/pages/Welcome";
+import Welcome from "./components/login/Login";
+import Todos from "./components/pages/Todos";
 
 function App() {
 
@@ -6,6 +7,7 @@ function App() {
     <div>
       Welcome ^_^
       <Welcome />
+      <Todos />
     </div>
   );
 }
