@@ -1,5 +1,5 @@
 import React from 'react';
-import { database } from '../../firebase';
+import { db } from '../../firebase';
 import { collection, addDoc, serverTimestamp} from 'firebase/firestore';
 import { useState } from 'react';
 import './AddTodo.css'
@@ -9,7 +9,7 @@ const AddTodo = () => {
     const handleSubmit = async (e) => {
         e.preventDefault();
         if (title !== '') {
-            await addDoc(collection(database, 'todos'), {
+            await addDoc(collection(db, 'todos'), {
                 title,
                 completed: false,
                 createdAt: serverTimestamp(),

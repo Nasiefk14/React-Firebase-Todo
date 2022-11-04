@@ -1,6 +1,6 @@
 import AddTodo from "../todos/AddTodo";
 import Title from "../todos/Title";
-import { database } from "../../firebase";
+import { db } from "../../firebase";
 import {
   collection,
   query,
@@ -18,7 +18,7 @@ function Todos() {
   const [todos, setTodos] = useState([]);
 
   useEffect(() => {
-    const colRef = collection(database, "todos");
+    const colRef = collection(db, "todos");
     const sortByNew = query(colRef, orderBy("createdAt", "asc"));
     const onSub = onSnapshot(sortByNew, (QuerySnapshot) => {
       let todosArray = [];
@@ -31,15 +31,15 @@ function Todos() {
   }, []);
 
   const handleEdit = async (todo, title) => {
-    await updateDoc(doc(database, "todos", todo.id), { title: title });
+    await updateDoc(doc(db, "todos", todo.id), { title: title });
   };
   const toggleComplete = async (todo) => {
-    await updateDoc(doc(database, "todos", todo.id), {
+    await updateDoc(doc(db, "todos", todo.id), {
       completed: !todo.completed,
     });
   };
   const handleDelete = async (id) => {
-    await deleteDoc(doc(database, "todos", id));
+    await deleteDoc(doc(db, "todos", id));
   };
 
   return (
