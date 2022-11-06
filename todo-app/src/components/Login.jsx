@@ -1,14 +1,12 @@
 import { provider, auth } from "../firebase";
 import { signInWithPopup } from "firebase/auth";
-import { useDispatch, useSelector } from "react-redux";
-import {
-  selectUserName,
-  setUserLoginDetails,
-} from "../features/user/userSlice";
+import { useDispatch } from "react-redux";
+import { setUserLoginDetails } from "../features/user/userSlice";
 import { useNavigate } from "react-router-dom";
+import "./Login.css";
+import { AiOutlineGooglePlus } from "react-icons/ai";
 const Login = () => {
   const dispatch = useDispatch();
-  const username = useSelector(selectUserName);
   const navigate = useNavigate();
   const handleAuth = () => {
     signInWithPopup(auth, provider)
@@ -28,16 +26,21 @@ const Login = () => {
         name: user.displayName,
         email: user.email,
         photo: user.photoURL,
-        id: user.uid
+        id: user.uid,
       })
     );
   };
 
   return (
     <>
-      {!username ? <button onClick={handleAuth}>Login</button> : <></>}
-
-      <button>Sign Out</button>
+      <h1>My Todo App</h1>
+      <div className="login">
+        <h3 className="header">Login Here :</h3>
+          <button onClick={handleAuth} className="button">
+            <AiOutlineGooglePlus className="icons" />
+            <p className="buttonText">Sign In WIth Google</p>
+          </button>
+      </div>
     </>
   );
 };

@@ -8,7 +8,7 @@ const Title = () => {
     const username = useSelector(selectUserName)
     return (
         <div className='title'>
-            <h1>{username}'s Todos</h1>
+            <h1>{username}'s Too doos</h1>
         </div>
     );
 }

@@ -1,0 +1,56 @@
+@import url('https://fonts.googleapis.com/css2?family=Fascinate&display=swap');
+h1{
+    color: white;
+    font-family: 'Fascinate', cursive;
+    font-size: 46px;
+    font-weight: 300;
+    margin-top: 35px;
+    margin-bottom: 15px;
+    padding-bottom: 10px;
+}
+
+.login{
+    background-color:white;
+    padding-bottom: 15px;
+    border-radius: 8px;
+    width: 40%;
+    margin: auto;
+    filter: drop-shadow(10px 7px 5px #f21652);
+}
+
+.header{
+    font-family: 'Fascinate', cursive;
+    font-size: 22px;
+    color: #f21689;
+}
+
+.button{
+    width: 30vh;
+    height: 50px;
+    border: none;
+    border-radius: 25px;
+    margin-bottom: 150px;
+    display: flex;
+    justify-content: space-between;
+    margin: auto;
+    background-color: #f08da9;
+}
+
+.icons{
+    font-size: 36px;
+    padding-left: 5px;
+    padding-top: 5px;
+}
+
+.buttonText{
+    font-size: 16px;
+    padding-right: 45px;
+    font-family: 'Century Gothic';
+    font-weight: bold;
+    letter-spacing: 0.4px;
+}
+
+.button:hover{
+    background-color: #f21689;
+    color: white;
+}
