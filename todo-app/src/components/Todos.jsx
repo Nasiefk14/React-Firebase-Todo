@@ -14,11 +14,19 @@ import { useEffect, useState } from "react";
 import TodoList from "./todos/TodoList";
 import "./Todos.css";
 
+import { useSelector } from "react-redux";
+import { selectUserName, selectUserId } from "../features/user/userSlice";
+import { useNavigate } from "react-router-dom";
+
 function Todos() {
   const [todos, setTodos] = useState([]);
+  const dbId = useSelector(selectUserId);
+  const userName = useSelector(selectUserName);
+  const navigate = useNavigate();
 
   useEffect(() => {
-    const colRef = collection(db, "todos");
+    // const colRef = collection(db, 'todos');
+    const colRef = collection(db, `${dbId} - ${userName}`);
     const sortByNew = query(colRef, orderBy("createdAt", "asc"));
     const onSub = onSnapshot(sortByNew, (QuerySnapshot) => {
       let todosArray = [];
@@ -31,36 +39,44 @@ function Todos() {
   }, []);
 
   const handleEdit = async (todo, title) => {
-    await updateDoc(doc(db, "todos", todo.id), { title: title });
+    await updateDoc(doc(db, `${dbId} - ${userName}`, todo.id), {
+      title: title,
+    });
   };
   const toggleComplete = async (todo) => {
-    await updateDoc(doc(db, "todos", todo.id), {
+    await updateDoc(doc(db, `${dbId} - ${userName}`, todo.id), {
       completed: !todo.completed,
     });
   };
   const handleDelete = async (id) => {
-    await deleteDoc(doc(db, "todos", id));
+    await deleteDoc(doc(db, `${dbId} - ${userName}`, id));
   };
 
   return (
     <>
-      <div>
-        <Title />
-      </div>
-      <div>
-        <AddTodo />
-      </div>
-      <div className="todoContainer">
-        {todos.map((todo) => (
-          <TodoList
-            key={todo.id}
-            todo={todo}
-            toggleComplete={toggleComplete}
-            handleDelete={handleDelete}
-            handleEdit={handleEdit}
-          />
-        ))}
-      </div>
+      {!userName ? (
+        navigate("/")
+      ) : (
+        <>
+          <div>
+            <Title />
+          </div>
+          <div>
+            <AddTodo />
+          </div>
+          <div className="todoContainer">
+            {todos.map((todo) => (
+              <TodoList
+                key={todo.id}
+                todo={todo}
+                toggleComplete={toggleComplete}
+                handleDelete={handleDelete}
+                handleEdit={handleEdit}
+              />
+            ))}
+          </div>
+        </>
+      )}
     </>
   );
 }
