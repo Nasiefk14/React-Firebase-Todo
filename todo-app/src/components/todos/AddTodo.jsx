@@ -29,7 +29,7 @@ const AddTodo = () => {
                 <input type="text" placeholder='Add Todo...' value={title} onChange={(e) => setTitle(e.target.value)}/>
             </div>
             <div className='buttonContainer'>
-                <button>Add</button>
+                <button className='add-button'>Add</button>
             </div>
         </form>
     );

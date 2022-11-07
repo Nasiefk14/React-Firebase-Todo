@@ -58,23 +58,27 @@ function Todos() {
         navigate("/")
       ) : (
         <>
-          <div>
-            <Title />
-          </div>
+          <Title />
           <div>
             <AddTodo />
           </div>
-          <div className="todoContainer">
-            {todos.map((todo) => (
-              <TodoList
-                key={todo.id}
-                todo={todo}
-                toggleComplete={toggleComplete}
-                handleDelete={handleDelete}
-                handleEdit={handleEdit}
-              />
-            ))}
-          </div>
+          {Object.keys(todos).length < 1 ? (
+            <div className="noTodos">
+              <h3>Looks Like You Havent Made Any Todos Yet, Create One Above</h3>
+            </div>
+          ) : (
+            <div className="todoContainer">
+              {todos.map((todo) => (
+                <TodoList
+                  key={todo.id}
+                  todo={todo}
+                  toggleComplete={toggleComplete}
+                  handleDelete={handleDelete}
+                  handleEdit={handleEdit}
+                />
+              ))}
+            </div>
+          )}
         </>
       )}
     </>
