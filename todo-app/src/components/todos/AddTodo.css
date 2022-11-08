@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Fascinate&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Fascinate&display=swap");
 
 form {
   max-width: 500px;
@@ -7,7 +7,6 @@ form {
   margin-top: 50px;
   border-radius: 5px;
   color: black;
-
 }
 
 form input {
@@ -27,18 +26,28 @@ form input {
   margin-bottom: 20px;
 }
 
-.buttonContainer{
-    text-align: center;
-    margin-bottom: 10px;
-  }
-  
-.add-button{
+.buttonContainer {
+  text-align: center;
+  margin-bottom: 10px;
+}
+
+.add-button {
   background-color: #f4e97d;
   width: 30%;
   padding: 10px 20px;
   border-radius: 10px;
   font-size: 24px;
-  font-family: 'Fascinate', cursive;
+  font-family: "Fascinate", cursive;
   border: 0.5px;
   margin-top: 15px;
+}
+
+.Toastify__progress-bar.Toastify__progress-bar--animated.Toastify__progress-bar-theme--light.Toastify__progress-bar--error {
+  background-color: #f4e97d;
+}
+
+:root{
+  --toastify-font-family: 'Century Gothic' !important;
+  --toastify-color-error: black !important;
+  --toastify-text-color-light: black !important   ;
 }

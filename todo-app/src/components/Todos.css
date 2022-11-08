@@ -7,6 +7,17 @@ body{
     margin: auto;
 }
 
+.noTodos{
+  width: 60%;
+  margin: auto;
+}
+
+.noTodos h3{
+  font-size: 28px;
+  color:#f4e97d;
+  font-family: 'Fascinate', cursive;
+}
+
 @media screen and (max-width: 667px) {
     .todoContainer {
       width: 90%;
