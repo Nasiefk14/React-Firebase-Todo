@@ -41,6 +41,10 @@ form input {
   border: 0.5px;
   margin-top: 15px;
 }
+.icon{
+  font-size: 32px;
+  color:black ;
+}
 
 .Toastify__progress-bar.Toastify__progress-bar--animated.Toastify__progress-bar-theme--light.Toastify__progress-bar--error {
   background-color: #f4e97d;

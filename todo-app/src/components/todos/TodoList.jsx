@@ -1,11 +1,10 @@
 import React from "react";
 import { useState } from "react";
-import CheckCircleIcon from "@mui/icons-material/CheckCircle";
-import EditIcon from "@mui/icons-material/Edit";
-import DeletIcon from "@mui/icons-material/Delete";
-import './TodoList.css'
+import { AiOutlineCheckCircle } from "react-icons/ai";
+import { BsTrash } from "react-icons/bs";
+import "./TodoList.css";
 
-const TodoList = ({ todo, toggleComplete, handleDelete, handleEdit }) => {
+const TodoList = ({ todo, toggleComplete, handleDelete }) => {
   const [newTitle, setNewTitle] = useState(todo.title);
   const onChangeHandler = (e) => {
     e.preventDefault();
@@ -19,21 +18,18 @@ const TodoList = ({ todo, toggleComplete, handleDelete, handleEdit }) => {
   return (
     <div className="todos">
       <input
-      className="item"
+        className="item"
         type="text"
         value={todo.title === "" ? newTitle : todo.title}
         style={{ textDecoration: todo.completed && "line-through" }}
         onChange={onChangeHandler}
       />
       <div className="actionsContainer">
-        <button onClick={() => handleEdit(todo, newTitle)} className='buttonEdit'>
-            <EditIcon id='i'/>
+        <button onClick={() => toggleComplete(todo)} className="buttonComplete">
+          <AiOutlineCheckCircle className="icon"/>
         </button>
-        <button onClick={() => toggleComplete(todo)} className='buttonComplete'>
-            <CheckCircleIcon id='i' />
-        </button>
-        <button onClick={() => handleDelete(todo.id)} className='buttonDelete'>
-            <DeletIcon id='i'/>
+        <button onClick={() => handleDelete(todo.id)} className="buttonDelete">
+          <BsTrash className="icon"/>
         </button>
       </div>
     </div>
