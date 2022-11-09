@@ -39,7 +39,7 @@ const AddTodo = () => {
         }
     }
     return (
-        <form onSubmit={handleSubmit}>
+        <form onSubmit={handleSubmit} className="addTodoForm">
             <ToastContainer />
             <div className='inputContainer'>
                 <input type="text" placeholder='Add Todo...' value={title} onChange={(e) => setTitle(e.target.value)}/>

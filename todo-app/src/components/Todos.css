@@ -1,32 +1,33 @@
-body{
-    text-align: center;
+body {
+  text-align: center;
 }
 
-.todoContainer{
-    width: 40%;
-    margin: auto;
+.todoContainer {
+  width: 40%;
+  margin: auto;
 }
 
-.noTodos{
+.noTodos {
   width: 60%;
   margin: auto;
 }
 
-.noTodos h3{
+.noTodos h3 {
   font-size: 28px;
-  color:#f4e97d;
-  font-family: 'Fascinate', cursive;
+  color: #f4e97d;
+  font-family: "Fascinate", cursive;
 }
 
 @media screen and (max-width: 667px) {
-    .todoContainer {
-      width: 90%;
-    }
-    .todos {
-      margin-right: 0px;
-    }
+  .todoContainer {
+    width: 90%;
   }
-  input:focus,
-  button:focus {
-    outline: none;
+  .todos {
+    margin-right: 0px;
   }
+}
+
+input:focus,
+button:focus {
+  outline: none;
+}

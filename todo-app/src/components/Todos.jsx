@@ -36,6 +36,7 @@ function Todos() {
       setTodos(todosArray);
     });
     return () => onSub();
+    // eslint-disable-next-line
   }, []);
 
   const handleEdit = async (todo, title) => {

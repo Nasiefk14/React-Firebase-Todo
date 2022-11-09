@@ -41,17 +41,28 @@ form input {
   border: 0.5px;
   margin-top: 15px;
 }
-.icon{
+.icon {
   font-size: 32px;
-  color:black ;
+  color: black;
 }
 
 .Toastify__progress-bar.Toastify__progress-bar--animated.Toastify__progress-bar-theme--light.Toastify__progress-bar--error {
   background-color: #f4e97d;
 }
 
-:root{
-  --toastify-font-family: 'Century Gothic' !important;
+:root {
+  --toastify-font-family: "Century Gothic" !important;
   --toastify-color-error: black !important;
   --toastify-text-color-light: black !important   ;
+}
+
+.addTodoForm {
+  margin-top: 15px;
+}
+
+@media screen and (max-width: 667px) {
+  .Toastify__toast.Toastify__toast-theme--light.Toastify__toast--error.Toastify__toast--close-on-click {
+    width: 70%;
+    margin: auto;
+  }
 }

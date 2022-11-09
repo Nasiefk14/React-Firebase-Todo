@@ -58,3 +58,27 @@ h1{
     background-color: #7dc4f4;
     color: white;
 }
+
+@media screen and (max-width: 667px) {
+    h1{
+        font-size: 32px;
+    }
+    .header{
+        font-size: 18px;    
+        margin-top: 10px;
+    }
+    .login{
+        width: 80%;
+    }
+    .button{
+        width: 25vh;
+        height: 45px;
+    }
+    .buttonText{
+        font-size: 13px;
+        padding-right: 30px;
+    }
+    .icons{
+        font-size: 28px;
+    }
+}
