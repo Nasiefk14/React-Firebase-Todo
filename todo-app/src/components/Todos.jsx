@@ -17,25 +17,32 @@ import "./Todos.css";
 import { useSelector } from "react-redux";
 import { selectUserName, selectUserId } from "../features/user/userSlice";
 import { useNavigate } from "react-router-dom";
+import GridLoader from 'react-spinners/GridLoader'
 
 function Todos() {
   const [todos, setTodos] = useState([]);
   const dbId = useSelector(selectUserId);
   const userName = useSelector(selectUserName);
   const navigate = useNavigate();
+  const [isloading, setIsLoading] = useState(true);
 
   useEffect(() => {
     // const colRef = collection(db, 'todos');
     const colRef = collection(db, `${dbId} - ${userName}`);
     const sortByNew = query(colRef, orderBy("createdAt", "asc"));
-    const onSub = onSnapshot(sortByNew, (QuerySnapshot) => {
-      let todosArray = [];
-      QuerySnapshot.forEach((doc) => {
-        todosArray.push({ ...doc.data(), id: doc.id });
+    try{
+      const onSub = onSnapshot(sortByNew, (QuerySnapshot) => {
+        let todosArray = [];
+        QuerySnapshot.forEach((doc) => {
+          todosArray.push({ ...doc.data(), id: doc.id });
+        });
+        setTodos(todosArray);
+        setIsLoading(false)
       });
-      setTodos(todosArray);
-    });
-    return () => onSub();
+      return () => onSub();  
+    }catch(err){
+      console.log(err)
+    }
     // eslint-disable-next-line
   }, []);
 
@@ -63,10 +70,9 @@ function Todos() {
           <div>
             <AddTodo />
           </div>
-          {Object.keys(todos).length < 1 ? (
-            <div className="noTodos">
-              <h3>Looks Like You Havent Made Any Todos Yet, Create One Above</h3>
-            </div>
+          {isloading ? <div className="spinner"><GridLoader color="#f4e97d" size={30} /></div> : <></>}
+          {!isloading && Object.keys(todos).length < 1 ? (
+           <h3>Looks Like You Havent Made Any Todos Yet, Create One Above</h3>
           ) : (
             <div className="todoContainer">
               {todos.map((todo) => (
