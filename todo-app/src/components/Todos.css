@@ -12,10 +12,16 @@ body {
   margin: auto;
 }
 
-.noTodos h3 {
+h3 {
   font-size: 28px;
   color: #f4e97d;
   font-family: "Fascinate", cursive;
+}
+
+.spinner{
+  width: 80%;
+  margin: auto;
+  margin-top: 50px;
 }
 
 @media screen and (max-width: 667px) {
@@ -25,6 +31,9 @@ body {
   .todos {
     margin-right: 0px;
   }
+  h3 {
+    font-size: 20px;
+  }  
 }
 
 input:focus,

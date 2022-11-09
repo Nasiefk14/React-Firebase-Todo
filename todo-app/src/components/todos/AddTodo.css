@@ -15,7 +15,7 @@ form input {
   padding: 10px 5px;
   outline: none;
   font-size: 16px;
-  font-family: "Century Gothic", sans-serif;
+  font-family: 'League Spartan', sans-serif;
   font-weight: 600;
   filter: drop-shadow(5px 6px 8px #f4e97d);
   border: none;
@@ -41,6 +41,12 @@ form input {
   border: 0.5px;
   margin-top: 15px;
 }
+
+.add-button:hover{
+  background-color: #e8d414;
+  cursor: pointer;
+  color: white;
+}
 .icon {
   font-size: 32px;
   color: black;
@@ -51,7 +57,7 @@ form input {
 }
 
 :root {
-  --toastify-font-family: "Century Gothic" !important;
+  --toastify-font-family: 'Quattrocento Sans', sans-serif !important;
   --toastify-color-error: black !important;
   --toastify-text-color-light: black !important   ;
 }
