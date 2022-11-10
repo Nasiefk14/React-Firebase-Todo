@@ -1,6 +1,6 @@
 import AddTodo from "./todos/AddTodo";
 import Title from "./todos/Title";
-import { db } from "../firebase";
+import { auth, db } from "../firebase";
 import {
   collection,
   query,
@@ -15,7 +15,7 @@ import TodoList from "./todos/TodoList";
 import "./Todos.css";
 
 import { useSelector } from "react-redux";
-import { selectUserName, selectUserId } from "../features/user/userSlice";
+import { selectUserName, selectUserId, setSignOutState } from "../features/user/userSlice";
 import { useNavigate } from "react-router-dom";
 import GridLoader from 'react-spinners/GridLoader'
 
@@ -59,6 +59,11 @@ function Todos() {
   const handleDelete = async (id) => {
     await deleteDoc(doc(db, `${dbId} - ${userName}`, id));
   };
+  const signOut = () => {
+    auth.signOut().then(() => {
+      dispatchEvent(setSignOutState)
+    })
+  }
 
   return (
     <>
@@ -73,7 +78,7 @@ function Todos() {
           {isloading ? <div className="spinner"><GridLoader color="#f4e97d" size={30} /></div> : <></>}
           {!isloading && Object.keys(todos).length < 1 ? (
            <h3>Looks Like You Havent Made Any Todos Yet, Create One Above</h3>
-          ) : (
+          ) : (<>
             <div className="todoContainer">
               {todos.map((todo) => (
                 <TodoList
@@ -85,6 +90,8 @@ function Todos() {
                 />
               ))}
             </div>
+            <button onClick={signOut}>Sign Out</button>
+            </>
           )}
         </>
       )}
