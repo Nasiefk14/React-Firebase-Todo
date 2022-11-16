@@ -13,6 +13,7 @@ import {
 import { useEffect, useState } from "react";
 import TodoList from "./todos/TodoList";
 import "./Todos.css";
+import { useDispatch } from "react-redux";
 
 import { useSelector } from "react-redux";
 import { selectUserName, selectUserId, setSignOutState } from "../features/user/userSlice";
@@ -25,6 +26,7 @@ function Todos() {
   const userName = useSelector(selectUserName);
   const navigate = useNavigate();
   const [isloading, setIsLoading] = useState(true);
+  const dispatch = useDispatch()
 
   useEffect(() => {
     // const colRef = collection(db, 'todos');
@@ -61,7 +63,7 @@ function Todos() {
   };
   const signOut = () => {
     auth.signOut().then(() => {
-      dispatchEvent(setSignOutState)
+      dispatch(setSignOutState())
     })
   }
 
