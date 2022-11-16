@@ -1,6 +1,6 @@
 import AddTodo from "./todos/AddTodo";
 import Title from "./todos/Title";
-import { auth, db } from "../firebase";
+import { db } from "../firebase";
 import {
   collection,
   query,
@@ -13,10 +13,9 @@ import {
 import { useEffect, useState } from "react";
 import TodoList from "./todos/TodoList";
 import "./Todos.css";
-import { useDispatch } from "react-redux";
-
+import Header from '../components/Header'
 import { useSelector } from "react-redux";
-import { selectUserName, selectUserId, setSignOutState } from "../features/user/userSlice";
+import { selectUserName, selectUserId } from "../features/user/userSlice";
 import { useNavigate } from "react-router-dom";
 import GridLoader from 'react-spinners/GridLoader'
 
@@ -26,7 +25,6 @@ function Todos() {
   const userName = useSelector(selectUserName);
   const navigate = useNavigate();
   const [isloading, setIsLoading] = useState(true);
-  const dispatch = useDispatch()
 
   useEffect(() => {
     // const colRef = collection(db, 'todos');
@@ -61,11 +59,6 @@ function Todos() {
   const handleDelete = async (id) => {
     await deleteDoc(doc(db, `${dbId} - ${userName}`, id));
   };
-  const signOut = () => {
-    auth.signOut().then(() => {
-      dispatch(setSignOutState())
-    })
-  }
 
   return (
     <>
@@ -73,6 +66,7 @@ function Todos() {
         navigate("/")
       ) : (
         <>
+        <Header />
           <Title />
           <div>
             <AddTodo />
@@ -92,7 +86,6 @@ function Todos() {
                 />
               ))}
             </div>
-            <button onClick={signOut}>Sign Out</button>
             </>
           )}
         </>
