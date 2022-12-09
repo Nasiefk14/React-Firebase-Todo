@@ -12,10 +12,11 @@ const AddTodo = () => {
     const [title, setTitle] = useState('')
     const dbId = useSelector(selectUserId)
     const userName = useSelector(selectUserName)
-    
+    const [buttonDisabled, setButtonDisabled] = useState(false)
 
     const handleSubmit = async (e) => {
         e.preventDefault();
+        setButtonDisabled(true);
         if (title.match(/^\s*$/)) {
             toast.error('Enter A Valid Value!', {
                 position: "top-center",
@@ -36,6 +37,7 @@ const AddTodo = () => {
                 createdAt: serverTimestamp(),
             });
             setTitle('')
+            setButtonDisabled(false);
         }
     }
     return (
@@ -45,7 +47,7 @@ const AddTodo = () => {
                 <input type="text" placeholder='Add Todo...' value={title} onChange={(e) => setTitle(e.target.value)}/>
             </div>
             <div className='buttonContainer'>
-                <button className='add-button' >Add</button>
+                <button className='add-button' disabled={buttonDisabled}>Add</button>
             </div>
         </form>
     );
