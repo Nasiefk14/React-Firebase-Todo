@@ -20,7 +20,7 @@ function Header() {
     <div className="mainHeader">
       <div className="headerTitle">My Todo App</div>
       <div className="profilePic">
-        {<img src={profilePic} className="displayImage" onClick={signOut} alt='Logout Here'/>}
+        <img src={profilePic} className="displayImage" onClick={signOut} alt='Logout Here'/>
       </div>
     </div>
   );
