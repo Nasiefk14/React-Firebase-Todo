@@ -12,7 +12,6 @@ const Login = () => {
     signInWithPopup(auth, provider)
       .then((res) => {
         setUser(res.user);
-        console.log(res);
         navigate("/Todos");
       })
       .catch((err) => {

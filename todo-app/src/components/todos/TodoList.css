@@ -9,9 +9,8 @@
     align-items: center;
 }
 
-.todos input{
-    cursor: pointer;
-    width: 60%;
+.todos .item{
+    width: 85%;
     border: none;
     outline: none;
     cursor: pointer;
@@ -47,7 +46,8 @@
     .todosContainer {
       width: 90%;
     }
-    .todos input{
+    .todos .item{
+        width: 65%;
         font-size: 16px;
         height: auto;
     }

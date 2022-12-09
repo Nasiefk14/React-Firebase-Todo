@@ -17,19 +17,19 @@ const TodoList = ({ todo, toggleComplete, handleDelete }) => {
   };
   return (
     <div className="todos">
-      <input
+      <div
         className="item"
-        type="text"
-        value={todo.title === "" ? newTitle : todo.title}
         style={{ textDecoration: todo.completed && "line-through" }}
         onChange={onChangeHandler}
-      />
+      >
+        {todo.title === "" ? newTitle : todo.title}
+      </div>
       <div className="actionsContainer">
         <button onClick={() => toggleComplete(todo)} className="buttonComplete">
-          <AiOutlineCheckCircle className="icon"/>
+          <AiOutlineCheckCircle className="icon" />
         </button>
         <button onClick={() => handleDelete(todo.id)} className="buttonDelete">
-          <BsTrash className="icon"/>
+          <BsTrash className="icon" />
         </button>
       </div>
     </div>
